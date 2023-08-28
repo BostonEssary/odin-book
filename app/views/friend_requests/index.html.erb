@@ -1,0 +1,7 @@
+<h1>Current Friend Requests</h1>
+
+<% @requests.each do |request|%>
+    <% requestor = User.find(request.user_id)%>
+    <%= requestor.email%>
+    <%= button_to 'Accept?', friendships_path(id: request.user_id), method: :post%>
+<% end %>

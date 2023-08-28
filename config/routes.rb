@@ -7,4 +7,8 @@ Rails.application.routes.draw do
 
   resources :users
   resources :friendships
+  resources :friend_requests
+  
+  get '/profile', to: 'users#profile'
+  get '/profile/friend_requests', to: 'friend_requests#index'
 end
