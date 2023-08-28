@@ -16,4 +16,9 @@ class FriendshipsController < ApplicationController
             redirect_to users_path
         end
     end
+
+    def destroy
+        Friendship.destroy(params[:friendship])
+        redirect_to users_path
+    end
 end

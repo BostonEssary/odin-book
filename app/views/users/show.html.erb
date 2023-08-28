@@ -3,4 +3,12 @@
     <%= friend.email%>
 <% end %>
 
-<%= button_to 'Add Friend?', friend_requests_path(id: params[:id]), method: :post %>
+<% if @friendship %>
+  <%= button_to 'Unfriend?', friendship_path(friendship: @friendship.id), method: :delete%>
+
+  <% elsif @friend_request %>
+    <%= button_to 'Cancel Request', friend_request_path(friend_request: @friend_request.id), method: :delete%>
+
+<% else %>
+    <%= button_to 'Add Friend?', friend_requests_path(id: params[:id]), method: :post %>
+<% end %>

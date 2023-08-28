@@ -22,4 +22,11 @@ class FriendRequestsController < ApplicationController
         @requests = FriendRequest.where(requestee_id: current_user.id)
 
     end
+
+    def destroy
+
+        FriendRequest.destroy(params[:friend_request])
+        redirect_to users_path
+
+    end
 end
