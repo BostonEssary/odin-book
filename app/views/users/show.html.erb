@@ -1,1 +1,6 @@
 <h1> <%= @user.id%></h1>
+<% @user.friends.each do |friend|%>
+    <%= friend.email%>
+<% end %>
+
+<%= button_to 'Add Friend?', friendships_path(id: params[:id]), method: :post %>
