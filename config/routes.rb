@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   resources :users
   resources :friendships
   resources :friend_requests
+  resources :notifications
   
   get '/profile', to: 'users#profile'
   get '/profile/friend_requests', to: 'friend_requests#index'
+  get '/notifications', to: 'notifications#index'
 end

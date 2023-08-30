@@ -9,4 +9,6 @@ class User < ApplicationRecord
 
   has_many :friend_requests, :class_name => "FriendRequest"
   has_many :requestees, -> { distinct }, through: :friend_requests
+
+  has_many :notifications, as: :recipient, dependent: :destroy
 end
