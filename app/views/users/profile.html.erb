@@ -1,3 +1,9 @@
-<h1>this is the profile page</h1>
+<h1>Welcome back, <%= current_user.name%></h1>
 
-<h3><%= current_user.email%></h3>
+<div>
+    <p>Bio: </p>
+    <%= current_user.bio%>
+</div>
+
+
+<%= button_to "Edit Profile", edit_user_registration_path, method: :get%>
