@@ -1,0 +1,21 @@
+
+<h2>Below is the body text</h2>
+<%= @post.body %>
+<%= @post.id%>
+<% @post.comments.each do |comment|%>
+    <%= comment.content%>
+    <br>
+<% end %>
+<br>
+<h3>Below are the likes</h3>
+<%= @post.likes.size%>
+<%= form_with model:[@post, @like] do |form|%>
+    <%= form.submit 'Like Post?'%>
+<% end %>
+
+
+<%= form_with model: [@post, @comment] do |form|%>
+    <%= form.text_area :content%>
+    <%= form.submit 'Submit'%>
+<% end %>
+

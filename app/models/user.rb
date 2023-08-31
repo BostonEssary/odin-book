@@ -11,4 +11,9 @@ class User < ApplicationRecord
   has_many :requestees, -> { distinct }, through: :friend_requests
 
   has_many :notifications, as: :recipient, dependent: :destroy
+  has_many :posts
+  has_many :comments
+
+  has_many :likes
+  has_many :liked_posts, :through => :likes, :source => :posts
 end

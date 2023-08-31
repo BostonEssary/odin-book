@@ -1,4 +1,7 @@
+<h1>Users Index</h1>
+
 <% @users.each do |user|%>
+    <%next if user.id == current_user.id%>
     <%= link_to user.email, user%>
     <br>
 <% end %>

@@ -1,2 +1,10 @@
-<%= button_to 'Logout', destroy_user_session_path, method: :delete %>
-<%= button_to image_tag('notification-bell', size: 50), notifications_path, method: :get%>
+<div class="navbar flex items-center justify-between">
+    <div>
+        <%= link_to 'Brand-Name', notifications_path%>
+    </div>
+
+    <div class="links flex items-center">
+        <%= render 'layouts/notifications', unread_notifications: current_user&.notifications.unread.size%>
+        <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+    </div>
+</div>
