@@ -1,10 +1,14 @@
-<div class="navbar flex items-center justify-between">
+<div class="navbar flex items-center justify-between max-w-screen-lg ml-auto mr-auto p-2">
     <div>
         <%= link_to 'Brand-Name', notifications_path%>
     </div>
 
     <div class="links flex items-center">
-        <%= render 'layouts/notifications', unread_notifications: current_user&.notifications.unread.size%>
-        <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+        <% if user_signed_in? %>
+            <%= render 'layouts/notifications', unread_notifications: current_user&.notifications.unread.size%>
+            <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+        <% else %>
+            <%= button_to 'Login', new_user_session_path, method: :get %>
+        <% end %>
     </div>
 </div>
