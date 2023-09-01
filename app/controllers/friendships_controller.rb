@@ -20,7 +20,10 @@ class FriendshipsController < ApplicationController
     end
 
     def destroy
-        Friendship.destroy(params[:friendship])
+        @friendship = params[:friendship]
+        @inverse_friendship = params[:inverse_friendship]
+        Friendship.destroy(@friendship)
+        Friendship.destroy(@inverse_friendship )
         redirect_to users_path
     end
 end

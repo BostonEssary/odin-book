@@ -3,8 +3,8 @@
     <%= friend.email%>
 <% end %>
 
-<% if @friendship %>
-  <%= button_to 'Unfriend?', friendship_path(friendship: @friendship.id), method: :delete%>
+<% if current_user.friends.where(id: params[:id] ).empty? == false %>
+  <%= button_to 'Unfriend?', friendship_path(friendship: @friendship.id, inverse_friendship: @inverse_friendship.id), method: :delete%>
 
   <% elsif @friend_request %>
     <%= button_to 'Cancel Request', friend_request_path(friend_request: @friend_request.id), method: :delete%>

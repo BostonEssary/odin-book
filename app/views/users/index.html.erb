@@ -3,5 +3,10 @@
 <% @users.each do |user|%>
     <%next if user.id == current_user.id%>
     <%= link_to user.email, user%>
+    <% if @user_friends.where(id: user.id ).empty? == false %>
+      <p>nothing</p>
+    <% else %>
+        <%= button_to 'Add Friend?', friend_requests_path(id: user.id), method: :post %>
+    <% end %>
     <br>
 <% end %>
