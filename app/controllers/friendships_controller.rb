@@ -15,6 +15,7 @@ class FriendshipsController < ApplicationController
         @inverse_friendship = @friend.friendships.new(inverse_friendship_params)
 
         if @friendship.save && @inverse_friendship.save
+            FriendRequest.destroy(params[:request])
             redirect_to users_path
         end
     end
