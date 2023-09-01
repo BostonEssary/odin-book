@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all()
+    ids = current_user.friends.pluck(:id) << current_user.id
+    @posts = Post.where(user_id: ids)
   end
 
   def create
