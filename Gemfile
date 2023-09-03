@@ -79,3 +79,5 @@ gem "devise", "~> 4.9"
 gem "noticed", "~> 1.6"
 
 gem "tailwindcss-rails", "~> 2.0"
+
+gem "paperclip-cloudinary", "~> 1.3"

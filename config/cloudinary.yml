@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: drs9cewnt
+  api_key: '866295663645677'
+  api_secret: gdGg5kBRMLD7YNHKd1tP8zsHveA
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: drs9cewnt
+  api_key: '866295663645677'
+  api_secret: gdGg5kBRMLD7YNHKd1tP8zsHveA
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: drs9cewnt
+  api_key: '866295663645677'
+  api_secret: gdGg5kBRMLD7YNHKd1tP8zsHveA
+  enhance_image_tag: true
+  static_file_support: false

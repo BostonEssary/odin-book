@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   def index
     ids = current_user.friends.pluck(:id) << current_user.id
     @posts = Post.where(user_id: ids)
+    @comment = Comment.new()
   end
 
   def create
