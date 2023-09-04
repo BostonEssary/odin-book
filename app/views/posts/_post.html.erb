@@ -1,10 +1,23 @@
-<div class="m-4 p-4 bg-indigo-400 w-fit rounded">
-    <p><%= post.body%></p>
-    <p>Posted By: <%= post.user.email%></p>
-    <p>Posted On: <%= post.date_format %></p>
+<div class="m-4 p-4 bg-indigo-400 w-fit flex flex-col content-start">
+
+    <div class="mb-4">
+        <div class="mb-4">
+            <%= image_tag post.user.avatar.variant(:thumb), class: "rounded-full"%>
+            <p><%= post.user.email%></p>
+        </div>
+        <p class="my-4"><%= post.body%></p>
+        <p><%= post.date_format %></p>
+    </div>
+
 
     <%= form_with model: [post, @comment] do |form|%>
         <%= form.text_area :content%>
         <%= form.submit 'Submit'%>
     <% end %>
+
+    <%= button_to "Like?", post_likes_path(post_id: post.id), method: :post %>
+    <p><%= post.likes.size %></p>
+        
+    
+
 </div>

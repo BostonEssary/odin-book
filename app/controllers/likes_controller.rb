@@ -6,7 +6,7 @@ class LikesController < ApplicationController
     @like.user = current_user
 
     if @like.save
-      redirect_to @post
+      redirect_to root_path
     end
     
     

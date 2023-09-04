@@ -4,6 +4,6 @@
     <p>Bio: </p>
     <%= current_user.bio%>
 </div>
-
+<%= image_tag current_user.avatar.variant(:thumb), class: "rounded-full" %>
 
 <%= button_to "Edit Profile", edit_user_registration_path, method: :get%>
