@@ -6,7 +6,9 @@ class LikesController < ApplicationController
     @like.user = current_user
 
     if @like.save
-      redirect_to root_path
+      respond_to do |format|
+        format.turbo_stream
+      end
     end
     
     
@@ -20,6 +22,10 @@ class LikesController < ApplicationController
     @like = params[:id]
 
     Like.destroy(@like)
+    respond_to do |format|
+      format.turbo_stream
+    end
+    
   end
 
 end
