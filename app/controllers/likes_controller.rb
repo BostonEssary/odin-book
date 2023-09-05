@@ -15,4 +15,11 @@ class LikesController < ApplicationController
   def new
     @like = Like.new()
   end
+
+  def destroy 
+    @like = params[:id]
+
+    Like.destroy(@like)
+  end
+
 end

@@ -1,0 +1,8 @@
+<div class= "likes flex ml-4 items-center">
+    <% if current_user.likes.where(post_id: post).blank? %>
+        <%= button_to image_tag('like', size: 25), post_likes_path(post_id: post.id), method: :post, class: "bg-rose-100/50 rounded px-4 py-1 hover:bg-rose-200/50" %>
+    <% else %>
+        <%= button_to image_tag('highlighted-like', size: 25), post_like_path(post_id: post.id, id: current_user.likes.where(post_id: post).first), method: :delete, class: "bg-rose-100/50 rounded px-4 py-1 hover:bg-rose-200/50" %>
+    <% end %>
+    <p class="m-2"><%=  post.likes.size%></p>
+</div>

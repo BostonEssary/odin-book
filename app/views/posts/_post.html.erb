@@ -1,22 +1,17 @@
-<div class="m-4 p-4 bg-indigo-400 w-fit flex flex-col content-start">
+<div class="m-4 p-4 bg-indigo-400 w-full flex flex-col content-start rounded ">
 
     <div class="mb-4">
         <div class="mb-4 flex items-center">
-            <%= image_tag post.user.avatar.variant(:small_thumb), class: "rounded-full"%>
+            <%= image_tag post.user.small_thumb, class: "rounded-full"%>
             <p><%= post.user.email%></p>
         </div>
         <p class="my-4 text-sm leading-relaxed"><%= post.body%></p>
         <p class="text-xs font-thin text-black/50"><%= post.date_format %></p>
     </div>
 
-
-    <div>
-        <%= button_to image_tag('comment', size: 25), post, method: :get , class: "bg-rose-100/50 rounded px-4 py-1 hover:bg-rose-200/50"%>
-        <%= button_to image_tag('like', size: 25), post_likes_path(post_id: post.id), method: :post %>
+    <div class="flex items-center">
+        <%= render "layouts/comment_button", post: post %>
+        <%= render "layouts/like_button", post: post %>
     </div>
-    
-    <p><%= post.likes.size %></p>
-        
-    
 
 </div>

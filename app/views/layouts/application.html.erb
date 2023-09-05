@@ -11,9 +11,11 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body >
-      <%= render "layouts/navbar"%>
+  <body class="max-w-screen-lg" >
+    <%= render "layouts/navbar"%>
+    <div class="m-2">
+      <%= yield %>
+    </div>
     
-    <%= yield %>
   </body>
 </html>

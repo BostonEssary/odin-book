@@ -20,4 +20,8 @@ class User < ApplicationRecord
   has_one_attached :avatar do |attachable|
     attachable.variant :small_thumb, resize_to_fill: [50, 50]
   end
+
+  def small_thumb
+    avatar.attached? ? avatar.variant(:small_thumb) : 'default.jpeg'
+  end
 end
