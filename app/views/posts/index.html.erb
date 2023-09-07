@@ -1,5 +1,9 @@
 <div class="flex flex-col items-center">
 
-  <%= render partial: "posts/post", collection: @posts%>
+
+  <% @posts.each do |post|%>
+    <%= render partial: "posts/post", locals: {post: post}%>
+    <%= render partial: "posts/likes", locals: {post: post}%>
+  <% end %>
 
 </div>

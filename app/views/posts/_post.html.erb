@@ -11,7 +11,7 @@
 
     <div class="flex items-center">
         <%= render "layouts/comment_button", post: post %>
-        <%= render "layouts/like_button", post: post %>
+        <%= render partial: "posts/likes", locals: {post:post}%>
     </div>
 
 </div>

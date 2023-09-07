@@ -1,31 +1,30 @@
 class LikesController < ApplicationController
   def create
-    @post = Post.find(params[:post_id])
-    @like = Like.new()
-    @like.post = @post
-    @like.user = current_user
+    post.likes.create(user: current_user)
 
-    if @like.save
-      respond_to do |format|
-        format.turbo_stream
-      end
-    end
-    
-    
-  end
 
-  def new
-    @like = Like.new()
+    render turbo_stream: turbo_stream.replace(
+      helpers.dom_id(post, :like),
+      partial: "posts/likes",
+      locals: {post: post}
+    )
   end
 
   def destroy 
-    @like = params[:id]
+    post.likes.where(user: current_user).destroy_all
 
-    Like.destroy(@like)
+
     respond_to do |format|
       format.turbo_stream
     end
     
+    render :likes
+  end
+
+  private
+
+  def post
+    @post ||= Post.find(params[:post_id])
   end
 
 end

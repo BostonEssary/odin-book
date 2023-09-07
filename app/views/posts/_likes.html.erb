@@ -1,0 +1,9 @@
+<div id="<%= dom_id(post, :like) %>" class="flex">
+  <% if post.liked_by? current_user %>
+    <%= button_to image_tag('highlighted-like', size: 25), post_like_path(post), method: :delete, class: "mx-2" %>
+  <% else %>
+    <%= button_to image_tag('like', size: 25), post_like_path(post), class: "mx-2" %>
+  <% end %>
+
+   <%= pluralize post.likes.count, "like" %>
+</div>

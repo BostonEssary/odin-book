@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   resources :notifications
   resources :posts do
     resources :comments
-    resources :likes
+    resource :like, only: [:destroy, :create]
   end
-  resources :likes
+
   
   get '/profile', to: 'users#profile'
   get '/profile/friend_requests', to: 'friend_requests#index'
