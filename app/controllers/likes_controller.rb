@@ -13,11 +13,6 @@ class LikesController < ApplicationController
   def destroy 
     post.likes.where(user: current_user).destroy_all
 
-
-    respond_to do |format|
-      format.turbo_stream
-    end
-    
     render :likes
   end
 
