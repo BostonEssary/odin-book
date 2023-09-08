@@ -2,7 +2,7 @@
 <%= turbo_frame_tag "new_comment", target: "_top" do%>
   <%= form_with(model: [ @comment.post, @comment]) do |form| %>
     <div class="field">
-      <%= form.text_field :content %>
+      <%= form.text_field :content, class: "rounded-lg" %>
       <%= form.submit "Send"%>
     </div>
 
