@@ -1,12 +1,13 @@
 <h1>Users Index</h1>
 
-<% @users.each do |user|%>
-    <%next if user.id == current_user.id%>
-    <%= link_to user.email, user%>
-    <% if @user_friends.where(id: user.id ).empty? == false %>
-      <p>nothing</p>
-    <% else %>
-        <%= button_to 'Add Friend?', friend_requests_path(id: user.id), method: :post %>
-    <% end %>
-    <br>
-<% end %>
+
+ <% @users.each do |user|%>
+      <%next if user.id == current_user.id%>
+      <div class="m-4 p-4 bg-indigo-400 flex flex-col content-start rounded">
+        <%= render "users/user", user: user%>
+        <%= render "users/friends", user:user%>
+      </div>
+      
+      <br>
+  <% end %> 
+ 

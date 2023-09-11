@@ -3,8 +3,8 @@
 <div class="flex flex-col items-center"> 
 <div id="comments" class="flex flex-col items-start">
     <%= render @post.comments%>
-    <%= turbo_frame_tag "new_comment", src: new_post_comment_path(@post), target: "_top" %>
 </div>
+<%= turbo_frame_tag "new_comment", src: new_post_comment_path(@post), target: "_top" %>
 
 
 </div>
