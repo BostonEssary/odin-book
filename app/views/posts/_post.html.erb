@@ -13,5 +13,9 @@
         <%= render "layouts/comment_button", post: post %>
         <%= render partial: "posts/likes", locals: {post:post}%>
     </div>
+    <% if post.user == current_user %>
+      <%= button_to image_tag("delete", size: 25), post_path(post), method: :delete%>
+    <% else %>
+    <% end %>
 
 </div>
