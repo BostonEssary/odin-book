@@ -1,9 +1,11 @@
-<h1 class="text-3xl">Welcome back, <%= current_user.name%></h1>
-<%= image_tag current_user.thumb, class: "rounded-full" %>
+<div class="bg-indigo-400 p-2 rounded">
+    <h1 class="text-3xl">Welcome back, <%= current_user.name%></h1>
+    <%= image_tag current_user.thumb, class: "rounded-full" %>
 
-<div>
-    <p>Bio: </p>
-    <%= current_user.bio%>
+    <div class="m-2">
+        <div class="text-xl underline">Bio</div>
+        <%= current_user.bio%>
+    </div>
+
+    <%= button_to "Edit Profile", edit_user_registration_path, method: :get, class: "m-2 rounded-full bg-pink-200 p-2"%>
 </div>
-
-<%= button_to "Edit Profile", edit_user_registration_path, method: :get%>
