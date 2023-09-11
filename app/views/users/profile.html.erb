@@ -1,9 +1,9 @@
-<h1>Welcome back, <%= current_user.name%></h1>
+<h1 class="text-3xl">Welcome back, <%= current_user.name%></h1>
+<%= image_tag current_user.thumb, class: "rounded-full" %>
 
 <div>
     <p>Bio: </p>
     <%= current_user.bio%>
 </div>
-<%= image_tag current_user.avatar.variant(:thumb), class: "rounded-full" %>
 
 <%= button_to "Edit Profile", edit_user_registration_path, method: :get%>

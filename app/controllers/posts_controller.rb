@@ -8,9 +8,10 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
+    @post.save
 
-    if @post.save
-      redirect_to posts_path
+    respond_to do |format|
+      format.turbo_stream
     end
   end
 

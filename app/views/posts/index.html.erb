@@ -1,9 +1,12 @@
 <div class="flex flex-col items-center">
+  <%= turbo_frame_tag "new_post", src: new_post_path(@post), target: "_top" %>
 
-
+<div id="posts">
   <% @posts.each do |post|%>
     <%= render partial: "posts/post", locals: {post: post}%>
     
   <% end %>
+</div>
+  
 
 </div>

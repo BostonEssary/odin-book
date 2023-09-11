@@ -1,4 +1,10 @@
-<%= form_with model: @post do |form|%>
-    <%= form.text_area :body%>
-    <%= form.submit 'Submit'%>
+
+<%= turbo_frame_tag "new_post", target: "_top" do%>
+    <%= form_with model: @post do |form|%>
+        <div class="flex items-center">
+            <%= form.text_area :body, class: "rounded mr-2"%>
+            <%= form.submit 'Post'%>
+        </div>
+        
+    <% end %>
 <% end %>
