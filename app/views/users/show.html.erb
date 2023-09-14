@@ -1,6 +1,11 @@
-<h1> <%= @user.id%></h1>
+<h1> <%= render "users/user", user: @user %></h1>
+<p> <%= @user.bio %></p>
+<h2>Friends</h2>
 <% @user.friends.each do |friend|%>
-    <%= friend.email%>
+    <%= link_to(friend) do%>
+        <%= friend.email%>
+        <%= render "users/user", user: friend %>
+    <% end %>
 <% end %>
 
 <% if current_user.friends.where(id: params[:id] ).empty? == false %>

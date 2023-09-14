@@ -3,11 +3,12 @@
 
  <% @users.each do |user|%>
       <%next if user.id == current_user.id%>
-      <div class="m-4 p-4 bg-indigo-400 flex flex-col content-start rounded">
-        <%= render "users/user", user: user%>
-        <%= render "users/friends", user:user%>
-      </div>
-      
+      <%= link_to(user) do %>
+        <div class="m-4 p-4 bg-indigo-400 flex flex-col content-start rounded">
+          <%= render "users/user", user: user%>
+          <%= render "users/friends", user:user%>
+        </div>
+      <% end %>
       <br>
   <% end %> 
  

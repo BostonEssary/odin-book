@@ -4,5 +4,11 @@
 
 import { application } from "./application"
 
+import Dropdown from 'stimulus-dropdown'
+application.register('dropdown', Dropdown)
+
+import Reveal from 'stimulus-reveal-controller'
+application.register('reveal', Reveal)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
