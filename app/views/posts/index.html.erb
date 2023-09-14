@@ -3,9 +3,8 @@
 
 <div id="posts">
   <% @posts.each do |post|%>
-    <div id="<%= dom_id(post)%>">
+      <%turbo_stream_from post%>
       <%= render partial: "posts/post", locals: {post: post}%>
-    </div>
     
     
   <% end %>
@@ -13,3 +12,4 @@
   
 
 </div>
+
