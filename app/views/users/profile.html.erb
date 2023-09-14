@@ -7,5 +7,6 @@
         <%= current_user.bio%>
     </div>
 
-    <%= button_to "Edit Profile", edit_user_registration_path, method: :get, class: "m-2 rounded-full bg-pink-200 p-2"%>
+
+    <%= turbo_frame_tag "edit_profile", src: edit_user_registration_path, target: "_top" %>
 </div>

@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
         devise_parameter_sanitizer.permit(:sign_up, keys: attributes)
         devise_parameter_sanitizer.permit(:account_update, keys: attributes)
     end
+
+    def user_root_path
+        profile_url
+    end
 end
