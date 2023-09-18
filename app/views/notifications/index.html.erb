@@ -1,3 +1,9 @@
-<h1>Notifications</h1>
-
-<%= render @notifications%>
+<% @notifications.each do |notification|%>
+    <%= render partial: "notification", locals: {notification: notification} %>
+    <%= button_to 'Accept?', friendships_path(id: notification.to_notification.creator_id), method: :post%>
+<% end %>
+<%= turbo_frame_tag "notifications" do%>
+    <div id="notifications-size">
+        <%= current_user&.notifications.unread.size%>
+    </div>
+<% end %>

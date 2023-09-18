@@ -1,9 +1,16 @@
 <div id="<%= dom_id(post)%>"class="m-4 p-4 bg-indigo-400 flex flex-col content-start rounded md:w-full">
 
     <div class="mb-4">
-        <div class="mb-4 flex items-center">
-            <%= image_tag post.user.small_thumb, class: "rounded-full"%>
-            <p><%= post.user.email%></p>
+        <div class="mb-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <%= image_tag post.user.small_thumb, class: "rounded-full"%>
+                <p><%= post.user.email%></p>
+            </div>
+    
+            <% if post.user == current_user %>
+                <%= button_to image_tag("delete", size: 25), post_path(post), method: :delete, class: "hover:bg-red-500 rounded-full"%>
+            <% else %>
+            <% end %>
         </div>
         <p class="my-4 text-sm leading-relaxed"><%= post.body%></p>
         <p class="text-xs font-thin text-black/50"><%= post.date_format %></p>
@@ -13,9 +20,6 @@
         <%= render "layouts/comment_button", post: post %>
         <%= render partial: "posts/likes", locals: {post:post}%>
     </div>
-    <% if post.user == current_user %>
-      <%= button_to image_tag("delete", size: 25), post_path(post), method: :delete%>
-    <% else %>
-    <% end %>
+    
 
 </div>
