@@ -1,13 +1,12 @@
-<%= turbo_frame_tag "notifications" do %>
-    <div class='notification-bell button'>
+<div class='notification-bell button'>
         <div class="p-5">
             <strong class="relative inline-flex items-center rounded">
                 <%= link_to image_tag('notification-bell', size: 25), notifications_path, method: :get%>
                 <span class="absolute -bottom-2 -right-2 h-4 w-4 rounded-full bg-red-600 flex justify-center items-center items p-2">
                     <span class='text-xs'>
-                        <div id="notifications-size">
-                            <%= turbo_stream_from current_user, :notifications %>
-                            <%= turbo_frame_tag "notifications" %>
+                        <div >
+                                <%= current_user.notifications.unread.size%>
+                            
                         </div>
                     </span>
                 </span>
@@ -15,5 +14,4 @@
     </div>
 </div>
 
-<% end %>
 

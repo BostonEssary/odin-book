@@ -2,4 +2,5 @@
 
     <%= notification.to_notification.message%>
     <%= notification.created_at.to_date%>
+    <%= button_to 'Accept?', friendships_path(id: notification.to_notification.creator_id), method: :post%>
 </div>

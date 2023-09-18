@@ -4,18 +4,15 @@ class Notification < ApplicationRecord
 
   after_create_commit :broadcast_to_recipient
 
-  
   def broadcast_to_recipient
-    user = recipient
-    broadcast_replace_later_to(
+    broadcast_append_later_to(
       recipient,
       :notifications,
-      target: 'notifications-size',
-      partial: 'layouts/notifications',
+      target: 'notifications-list',
+      partial: 'notifications/notification',
       locals: {
-        unread_notifications: user.notifications.unread.size
+        notification: self
       }
     )
   end
-  
 end
