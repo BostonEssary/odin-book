@@ -8,7 +8,12 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
-    @post.save
+    if @post.valid?
+      @post.save
+    else
+      flash[:error] = "Could not post"
+      redirect_to root_path
+    end
 
     respond_to do |format|
       format.turbo_stream

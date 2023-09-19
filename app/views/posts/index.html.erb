@@ -1,7 +1,15 @@
+
 <div class="flex flex-col items-center w-full">
+  <% if !!flash[:error] %>
+    <div class="bg-red-500 p-2 m-2 rounded">
+      
+      <%= flash[:error]%>
+    
+    </div>
+  <% end %>
   <%= turbo_frame_tag "new_post", src: new_post_path(@post), target: "_top" %>
 
-
+  
   <div id="posts" class="w-full md:w-1/2">
     <% @posts.each do |post|%>
         <%turbo_stream_from post%>

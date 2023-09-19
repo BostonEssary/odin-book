@@ -5,6 +5,8 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liking_users, :through => :likes, :source => :user
 
+  validates :body, presence: true
+
   has_one_attached :photo
 
   def date_format
