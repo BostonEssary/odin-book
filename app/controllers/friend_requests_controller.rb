@@ -28,6 +28,7 @@ class FriendRequestsController < ApplicationController
     def destroy
 
         FriendRequest.destroy(params[:friend_request])
+        Notification.destroy(params[:friend_request])
         redirect_to users_path
 
     end

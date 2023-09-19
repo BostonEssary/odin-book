@@ -1,34 +1,14 @@
 <div class='notification-bell button'>
     <div class="p-5">
             <strong class="relative inline-flex items-center rounded">
-                <div data-controller="dropdown" class="relative">
-                    <button type="button" data-action="dropdown#toggle click@window->dropdown#hide"><%= image_tag('notification-bell', size: 25)%></button>
+                <%= button_to image_tag('notification-bell', size: 25), notifications_path, method: :get%>    
                      <span class="absolute -bottom-2 -right-2 h-4 w-4 rounded-full bg-red-600 flex justify-center items-center items p-2">
                         <span class='text-xs'>
                             <div id="notifications-size">
-                                
+                                <%= current_user.notifications.unread.size%>
                             </div>
                         </span>
                     </span>
-
-                    <div
-                        data-dropdown-target="menu"
-                        class="hidden transition transform origin-top-right absolute inset-y-0 right-0 bg-red-200 w-64"
-                        data-transition-enter-from="opacity-0 scale-95"
-                        data-transition-enter-to="opacity-100 scale-100"
-                        data-transition-leave-from="opacity-100 scale-100"
-                        data-transition-leave-to="opacity-0 scale-95">
-                        <h6>Notifications</h6>
-                        <div class="flex justify-between">
-                            <% if user_signed_in? %>
-                                <%= turbo_stream_from current_user, :notifications %>
-                                <%= turbo_frame_tag "notifications", src: notifications_path %>
-                            <% else %>
-                                <%= link_to "Sign in", new_user_session_path, class: "text-blue-500" %>
-                            <% end %>
-                        </div>
-                    </div>
-                </div>
         </strong>
     </div>
 </div>
