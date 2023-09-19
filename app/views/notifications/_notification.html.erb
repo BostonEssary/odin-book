@@ -1,9 +1,13 @@
-<div>
-
-    <%= notification.to_notification.message%>
-    <%= notification.created_at.to_date%>
-    <% if notification.type == "FriendRequestNotification"%>
-        <%= button_to 'Accept?', friendships_path(id: notification.to_notification.creator_id), method: :post%>
-    <% else %>
-    <% end %>
+<div class="m-4 p-4 bg-rose-200 flex flex-col content-start rounded md:w-full">
+    <div class="flex items-centered">
+        <%= image_tag notification.to_notification.creator.small_thumb, class: "rounded-full"%>
+        <%= notification.to_notification.message%> 
+    </div>
+    <%= button_to 'Accept?', friendships_path(id: notification.to_notification.creator_id), class: "bg-indigo-400 p-2 rounded mt-2", method: :post%>
+    <div class = "text-xs font-thin text-black/50 m-2">
+            <%= notification.formatted_date%>
+        </div>
 </div>
+
+
+    

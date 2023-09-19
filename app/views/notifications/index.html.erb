@@ -1,6 +1,13 @@
 <%= turbo_frame_tag "notifications" do%>
     <ul id="notifications-list">
-        <%= render @notifications%>
+        <% @notifications.each do |notification|%>
+            <%= next if notification.params[:noticed_error]%>
+            <% if notification.type != "FriendRequestNotification"%>
+                <%= render "notifications/notification_with_link", notification: notification %>
+            <% else %>
+                <%= render "notifications/notification", notification: notification %>
+            <% end %>
+        <% end %>
     </ul>
 <% end %>
 

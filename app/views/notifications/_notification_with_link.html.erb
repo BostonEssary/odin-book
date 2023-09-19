@@ -1,0 +1,15 @@
+
+
+
+<%= link_to post_path(notification.to_notification.location), data: { turbo_frame: "_top" } do%>
+    <div class="m-4 p-4 bg-rose-200 flex flex-col content-start rounded md:w-full">
+        
+        <div class="flex items-center">
+            <%= image_tag notification.to_notification.creator.small_thumb, class: "rounded-full"%>
+            <%= notification.to_notification.message%>
+        </div>
+        <div class = "text-xs font-thin text-black/50 m-2">
+            <%= notification.formatted_date%>
+        </div>
+    </div>
+<% end %>

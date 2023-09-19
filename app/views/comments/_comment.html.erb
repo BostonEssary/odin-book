@@ -1,7 +1,7 @@
 <div id="<%= dom_id comment%>" class="m-auto mx-4 mb-3 p-4 bg-indigo-400 w-fit flex flex-col content-start rounded ">
     <div class="flex items-center">
         <%= image_tag comment.user.small_thumb, class: "rounded-full"%>
-        <%= comment.user.email%>
+        <%= comment.user.name%>
     </div>
     
     <%= comment.content %>

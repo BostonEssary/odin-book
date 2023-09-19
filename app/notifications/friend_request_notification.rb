@@ -11,11 +11,14 @@ class FriendRequestNotification < Noticed::Base
 
   
   def message
-     "You have a new friend request from #{creator}"
+     "You have a new friend request from #{creator.name}"
+  end
+
+  def location
   end
 
   def creator
-    params[:friend_request].user.name
+    params[:friend_request].user
   end
 
   def creator_id

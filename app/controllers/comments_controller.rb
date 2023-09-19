@@ -3,6 +3,9 @@ class CommentsController < ApplicationController
     @comment = post.comments.new(comment_params)
     @comment.user = current_user
     @comment.save
+
+    notification = CommentNotification.with(comment: @comment, post: post)
+    notification.deliver(post.user)
     
     respond_to do |format|
       format.turbo_stream 

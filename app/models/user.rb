@@ -18,9 +18,14 @@ class User < ApplicationRecord
   has_many :liked_posts, :through => :likes, :source => :posts, dependent: :destroy
 
   has_one_attached :avatar do |attachable|
+    attachable.variant :super_small_thumb, resize_to_fill: [25, 25]
     attachable.variant :small_thumb, resize_to_fill: [50, 50]
     attachable.variant :thumb, resize_to_fill: [100, 100]
     attachable.variant :big_thumb, resize_to_fill: [200, 200]
+  end
+
+  def super_small_thumb
+    avatar.attached? ? avatar.variant(:super_small_thumb) : 'default.jpeg'
   end
 
   def small_thumb
