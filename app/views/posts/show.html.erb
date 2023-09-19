@@ -4,6 +4,14 @@
 <div id="comments" class="flex flex-col items-start">
     <%= render @post.comments%>
 </div>
+<% if !!flash[:comment_error] %>
+    <div class="bg-red-500 p-2 m-2 rounded">
+      
+      <%= flash[:comment_error]%>
+    
+    </div>
+  <% end %>
+
 <%= turbo_frame_tag "new_comment", src: new_post_comment_path(@post), target: "_top" %>
 
 

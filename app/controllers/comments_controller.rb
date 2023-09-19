@@ -2,10 +2,17 @@ class CommentsController < ApplicationController
   def create
     @comment = post.comments.new(comment_params)
     @comment.user = current_user
-    @comment.save
 
-    notification = CommentNotification.with(comment: @comment, post: post)
-    notification.deliver(post.user)
+    if @comment.valid?
+      @comment.save
+      notification = CommentNotification.with(comment: @comment, post: post)
+      notification.deliver(post.user)
+    else
+      flash[:comment_error] = "Could not post"
+      redirect_to post_path(post)
+    end
+
+    
     
     respond_to do |format|
       format.turbo_stream 
