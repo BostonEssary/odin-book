@@ -1,7 +1,9 @@
 class LikesController < ApplicationController
   def create
-    post.likes.create(user: current_user)
-
+    @like = post.likes.create(user: current_user)
+  
+    notification = LikeNotification.with(like: @like, post: post)
+    notification.deliver(post.user)
 
     render turbo_stream: turbo_stream.replace(
       helpers.dom_id(post, :like),
