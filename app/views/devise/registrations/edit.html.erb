@@ -1,17 +1,11 @@
-<%= turbo_frame_tag "edit_profile", target: "_top" do%>
-  <div data-controller="reveal">
-        <button id="button-target" data-action="click->reveal#toggle" type="button" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border rounded shadow">
-            Edit Profile?
-        </button>
-        <div id="toggle-target" data-reveal-target="item" class="mt-4 hidden">
-            <div class="bg-indigo-400 rounded p-4">
+<div class="bg-indigo-400 rounded p-4">
                       <h2 class="text-2xl">Edit your profile here!</h2>
                       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
                       <%= render "devise/shared/error_messages", resource: resource %>
 
                       <div class="field m-4">
-                        <%= f.label :email, class: "font-bold" %><br />
-                        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "rounded" %>
+                        <%= f.label :email, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+                        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
                       </div>
 
                       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -19,28 +13,28 @@
                       <% end %>
 
                         <div class="field m-4">
-                        <%= f.label :avatar, class: "font-bold" %><br />
+                        <%= f.label :avatar, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
                         <%= f.file_field :avatar, autofocus: true, autocomplete: "avatar" %>
                       </div>
 
                       <div class="field m-4">
-                        <%= f.label :name, class: "font-bold" %><br />
-                        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "rounded" %>
+                        <%= f.label :name, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+                        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
                       </div>
 
                       <div class="field m-4">
-                        <%= f.label :location, class: "font-bold" %><br />
-                        <%= f.text_field :location, autofocus: true, autocomplete: "location", class: "rounded" %>
+                        <%= f.label :location, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+                        <%= f.text_field :location, autofocus: true, autocomplete: "location", class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
                       </div>
 
                       <div class="field m-4">
-                        <%= f.label :bio, class: "font-bold" %><br />
-                        <%= f.text_area :bio, autofocus: true, autocomplete: "bio", class: "rounded" %>
+                        <%= f.label :bio, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+                        <%= f.text_area :bio, autofocus: true, autocomplete: "bio", class: "w-full block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
                       </div>
 
                       <div class="field m-4">
-                        <%= f.label :password, class: "font-bold" %> <i>(leave blank if you don't want to change it)</i><br />
-                        <%= f.password_field :password, autocomplete: "new-password", class: "rounded" %>
+                        <%= f.label :password, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %> <i>(leave blank if you don't want to change it)</i><br />
+                        <%= f.password_field :password, autocomplete: "new-password", class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
                         <% if @minimum_password_length %>
                           <br />
                           <em><%= @minimum_password_length %> characters minimum</em>
@@ -48,17 +42,17 @@
                       </div>
 
                       <div class="field m-4">
-                        <%= f.label :password_confirmation, class: "font-bold" %><br />
-                        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "rounded" %>
+                        <%= f.label :password_confirmation, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+                        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
                       </div>
 
                       <div class="field m-4">
-                        <%= f.label :current_password, class: "font-bold" %> <i>(we need your current password to confirm your changes)</i><br />
-                        <%= f.password_field :current_password, autocomplete: "current-password", class: "rounded" %>
+                        <%= f.label :current_password, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %> <i>(we need your current password to confirm your changes)</i><br />
+                        <%= f.password_field :current_password, autocomplete: "current-password", class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
                       </div>
 
                       <div class="actions">
-                        <%= f.submit "Update", class: "bg-pink-200 hover:bg-pink-300 p-2 rounded-full m-4" %>
+                        <%= f.submit "Update", class: "text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" %>
                       </div>
                     <% end %>
 
@@ -68,11 +62,7 @@
                       <div><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "bg-red-400 hover:bg-red-500 p-2 rounded-full " %></div>
                     </div>
                     <%= link_to "Back", :back %>
-
-          </div>
-        </div>
-  </div>
-<% end %>
+</div>
 
 
 

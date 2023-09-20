@@ -10,6 +10,11 @@
   </div>
 
   <div class="field m-4">
+    <%= f.label :name, class: "font-bold" %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "rounded" %>
+  </div>
+
+  <div class="field m-4">
     <%= f.label :avatar, class: "font-bold"  %><br />
     <%= f.file_field :avatar, autofocus: true, autocomplete: "avatar" %>
   </div>

@@ -24,10 +24,17 @@ class User < ApplicationRecord
     attachable.variant :big_thumb, resize_to_fill: [200, 200]
   end
 
-  def find_request(first_user, second_user)
-    FriendRequest.where(user_id: first_user.id, requestee_id: second_user.id).first.id
+  def is_friends_with? user
+    friends.where(id: user.id).exists?
   end
 
+  def get_friendship user
+    friendships.where(friend_id: user.id).first.id
+  end
+
+  def has_request_from? user
+        friend_requests.where(requestee: user).exists?
+  end
   def super_small_thumb
     avatar.attached? ? avatar.variant(:super_small_thumb) : 'default.jpeg'
   end

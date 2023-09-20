@@ -1,30 +1,59 @@
-<div class="bg-indigo-400 p-4 rounded">
-    
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field m-4">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+
+
+<section class="bg-gray-50 dark:bg-gray-900">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
+        <div class="flex flex-col justify-center">
+            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white flex">shimmer
+                    <img src="https://www.svgrepo.com/show/349494/ruby.svg" class="h-8 mr-2"  /></h1>
+            <p class="mb-6 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">shimmer is a lite social media app. Log in or sign up to start communicating!</p>
+        </div>
+        <div>
+            <div class="w-full lg:max-w-xl p-6 space-y-8 sm:p-8 bg-white rounded-lg shadow-xl dark:bg-gray-800">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white flex">
+                    Sign in to shimmer
+                    <img src="https://www.svgrepo.com/show/349494/ruby.svg" class="h-8 mr-2"  />
+                </h2>
+                
+              <div class=" ">
+                  
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                  <div class="field m-4">
+                    <%= f.label :email, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+                    <div class="relative">
+                      <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
+                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+                          <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
+                          <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
+                        </svg>
+                      </div>
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", id:"email-address-icon", class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "name@shimmer.com"  %>
+                    </div>
+                  </div>
+
+                  <div class="field m-4">
+                    <%= f.label :password, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white"  %>
+                    
+                    <%= f.password_field :password, autocomplete: "current-password", class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+                  </div>
+
+                  <% if devise_mapping.rememberable? %>
+                    <div class="field m-4">
+                      <%= f.check_box :remember_me %>
+                      <%= f.label :remember_me %>
+                    </div>
+                  <% end %>
+
+                  <div class="actions m-4">
+                    <%= f.submit "Log in", class: "text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" %>
+                  </div>
+                <% end %>
+
+                <div class="m-4">
+                    <%= render "devise/shared/links" %>
+                </div>
+
+              </div>
+            </div>
+        </div>
     </div>
-
-    <div class="field m-4">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
-    </div>
-
-    <% if devise_mapping.rememberable? %>
-      <div class="field m-4">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
-      </div>
-    <% end %>
-
-    <div class="actions m-4">
-      <%= f.submit "Log in", class: "bg-pink-200 hover:bg-pink-300 p-2 rounded-full" %>
-    </div>
-  <% end %>
-
-  <div class="m-4">
-      <%= render "devise/shared/links" %>
-  </div>
-
-</div>
+</section>

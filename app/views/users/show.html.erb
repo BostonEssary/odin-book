@@ -1,13 +1,13 @@
-<div class="bg-indigo-400 p-2 rounded m-2">
+<div class="">
         <div class="flex items-center my-2 flex flex-col">
             <%= image_tag @user.big_thumb, class: "rounded-full mr-2"%>
             <p class="text-2xl"><%= @user.name%></p>
         </div>
-        <div class="m-2 bg-white/50 rounded p-2">
+        <div class="m-2  rounded p-2">
             <p class="text-2xl">About me</p>
             <p> <%= @user.bio %></p>
         </div>
-        <div class="m-2 bg-white/50 rounded p-2">
+        <div class="m-2  rounded p-2">
             <p class="text-2xl">My Posts</p>
             <div id="posts" class="w-full md:w-1/2">
                 <% @user.posts.each do |post|%>
@@ -32,8 +32,7 @@
     <% if current_user.friends.where(id: params[:id] ).empty? == false %>
         <%= button_to 'Unfriend?', friendship_path(friendship: @friendship.id, 
             inverse_friendship: @inverse_friendship.id), method: :delete%>
-    <% elsif @user.id == current_user.id %>
-        
+
     <% elsif @friend_request %>
         <%= button_to 'Cancel Request', friend_request_path(friend_request: @friend_request.id), method: :delete%>
     <% else %>

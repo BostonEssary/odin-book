@@ -11,14 +11,15 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body class="max-w-screen-xl bg-purple-100 flex flex-col items-center m-auto h-screen" >
+  <body class="max-w-screen-xl bg-purple-100 flex flex-col items-center m-auto h-max" >
     <% if user_signed_in? %>
       <%= render "layouts/navbar"%>
     <% end %>
     
-    <div class="m-2 w-full h-screen">
+    <div class="m-2 w-full h-max">
       <%= yield %>
     </div>
-    <%= render "layouts/footer"%>
+    
   </body>
+  <%= render "layouts/footer"%>
 </html>
