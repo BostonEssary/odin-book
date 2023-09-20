@@ -7,7 +7,7 @@
     
     </div>
   <% end %>
-  <%= turbo_frame_tag "new_post", src: new_post_path(@post), target: "_top" %>
+  <%= turbo_frame_tag "new_post", src: new_post_path(@post), class: "w-80 m-4", target: "_top" %>
 
   
   <div id="posts" class="w-full md:w-1/2">

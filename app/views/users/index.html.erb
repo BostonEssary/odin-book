@@ -1,14 +1,8 @@
-<h1>Users Index</h1>
-
-
+<div class="w-full flex flex-col items-center">
+<h3 class="text-4xl font-extrabold dark:text-w">Users</h3>
  <% @users.each do |user|%>
       <%next if user.id == current_user.id%>
-      <%= link_to(user) do %>
-        <div class="m-4 p-4 bg-indigo-400 flex flex-col content-start rounded">
-          <%= render "users/user", user: user%>
-          <%= render "users/friends", user:user%>
-        </div>
-      <% end %>
+          <%= render "users/user_card", user: user%>
       <br>
   <% end %> 
- 
+</div>

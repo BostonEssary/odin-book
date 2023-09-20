@@ -1,5 +1,7 @@
-
-    <div class="flex items-center my-2">
+<%= link_to user_path(user.id), class: "w-fit" do %>
+    <div class="flex items-center my-2 w-fit">
         <%= image_tag user.small_thumb, class: "rounded-full mr-2"%>
         <%= user.name%>
     </div>
+<% end %>
+
