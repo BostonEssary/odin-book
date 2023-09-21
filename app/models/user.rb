@@ -19,7 +19,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   has_many :likes, dependent: :destroy
-  has_many :liked_posts, :through => :likes, :source => :posts, dependent: :destroy
+  has_many :liked_posts, :through => :likes, :source => :post, dependent: :destroy
 
   has_one_attached :avatar do |attachable|
     attachable.variant :super_small_thumb, resize_to_fill: [25, 25]

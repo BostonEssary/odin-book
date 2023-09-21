@@ -1,5 +1,4 @@
 class UserMailer < ApplicationMailer
-    default from: 'notifications@shimmer.com'
 
   def welcome_email
     @user = params[:user]
