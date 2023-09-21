@@ -8,7 +8,7 @@
             </div>
     
             <% if post.user == current_user %>
-                <%= button_to image_tag("delete", size: 25), post_path(post), method: :delete, class: "hover:bg-red-500 rounded-full"%>
+                <%= button_to image_tag("delete.svg", size: 25), post_path(post), method: :delete, class: "hover:bg-red-500 rounded-full"%>
             <% else %>
             <% end %>
         </div>
@@ -21,7 +21,10 @@
 
     <div class="flex items-center bg-white/75 p-2 rounded">
         <%= render "layouts/comment_button", post: post %>
-        <%= render partial: "posts/likes", locals: {post:post}%>
+        <div class="mt-1">
+                    <%= render partial: "posts/likes", locals: {post:post}, class: "mt-1"%>
+
+        </div>
     </div>
     
 

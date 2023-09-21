@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  
+
+  validates :bio, :name, :avatar, presence: true
+
   has_many :friendships, :class_name => "Friendship", dependent: :destroy
   has_many :friends, -> { distinct }, through: :friendships, dependent: :destroy
 
@@ -23,6 +27,8 @@ class User < ApplicationRecord
     attachable.variant :thumb, resize_to_fill: [100, 100]
     attachable.variant :big_thumb, resize_to_fill: [200, 200]
   end
+
+  
 
   def is_friends_with? user
     friends.where(id: user.id).exists?
@@ -50,4 +56,17 @@ class User < ApplicationRecord
   def big_thumb
     avatar.attached? ? avatar.variant(:big_thumb): "default.jpeg"
   end
+
+  def self.from_omniauth(auth)
+    find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0, 20]
+      user.name = auth.info.name   # assuming the user model has a name
+      
+      # If you are using confirmable and the provider(s) you use validate emails, 
+      # uncomment the line below to skip the confirmation emails.
+      # user.skip_confirmation!
+    end
+  end
+  
 end

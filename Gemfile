@@ -83,3 +83,15 @@ gem "tailwindcss-rails", "~> 2.0"
 gem "paperclip-cloudinary", "~> 1.3"
 
 gem 'ruby-vips', '~> 2.1', '>= 2.1.4'
+
+gem 'omniauth-facebook'
+gem 'omniauth-rails_csrf_protection'
+
+gem 'active_storage-postgresql'
+gem "dockerfile-rails", ">= 1.5", :group => :development
+
+gem "redis", "~> 5.0"
+
+gem "sentry-ruby", "~> 5.11"
+
+gem "sentry-rails", "~> 5.11"
