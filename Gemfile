@@ -84,6 +84,8 @@ gem "paperclip-cloudinary", "~> 1.3"
 
 gem 'ruby-vips', '~> 2.1', '>= 2.1.4'
 
+gem "letter_opener", group: :development
+
 gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
 
