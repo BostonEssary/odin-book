@@ -18,7 +18,7 @@ class FriendshipsController < ApplicationController
             @requests.each do |request|
                 FriendRequest.destroy(request.id)
             end
-            redirect_to users_path
+            redirect_to notifications_path
         end
     end
 
